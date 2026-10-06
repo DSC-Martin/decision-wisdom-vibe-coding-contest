@@ -369,7 +369,6 @@ footer { border-top: 1px solid var(--line); padding: 28px 0 36px; color: var(--m
       <li><a href="#prizes">獎項</a></li>
       <!-- INTERNAL:END -->
     </ul>
-    <!-- TODO: 換成正式報名表單網址 -->
     <a class="btn btn-primary" href="#join">報名參賽</a>
   </div>
 </nav>
@@ -555,25 +554,7 @@ footer { border-top: 1px solid var(--line); padding: 28px 0 36px; color: var(--m
         <h2 class="reveal">準備好了就報名</h2>
         <p class="lead reveal">第 1 週的說明會會從頭示範一次 Vibe Coding，第一次做網站也跟得上。</p>
 
-        <!--
-          報名表單：資料直接送進 Google 表單連動的 Sheet，不用另外開資料庫。
-          介面是自己刻的（跟全頁同一套視覺），但送出的目的地是 Google 表單的提交端點——
-          submit 之後瀏覽器不會離開這一頁，回應寫進隱藏的 iframe（見下方 script）。
-
-          ▶▶ 上線前要做的事（entry.XXXXXXXXX 都是還沒填的佔位值）：
-          1. 去 forms.google.com 開一個新表單，依序加下面幾題（型別建議一致，方便對照）：
-             姓名(簡答) / Email(簡答) / 部門或單位(簡答，非必填)
-             品牌或隊伍名稱(簡答) / 作品名稱(簡答) / 對應題目或文章(簡答)
-             作品描述(段落) / 使用的AI工具(簡答) / 作品連結(簡答)
-             同意條款(核取方塊，一個選項「我已詳閱並同意比賽規則與資料安全規範」)
-          2. 每一題都先打一個好認的字串進去（例如姓名那題打 AAA_NAME），
-             再點右上角「⋮」→「取得預先填寫的連結」→「取得連結」，複製那串網址。
-          3. 網址裡會有一串 entry.123456789=AAA_NAME&entry.987654321=AAA_EMAIL...，
-             照你剛剛打的字串，把下面對應欄位的 entry.XXXXXXXXX 換成正確的數字。
-          4. 把同一串網址裡 "viewform" 改成 "formResponse"，整串貼到下面 <form> 的 action。
-          5. 核取方塊那題如果 Google 表單顯示的是 entry.XXXXXXXXX_sentinel 之類的隱藏欄位，
-             保留不要刪，勾選框本身另外還有一個 entry.XXXXXXXXX（有打勾才會送出那個值）。
-        -->
+        <!-- 報名表單：entry.XXXXXXXXX 是還沒接上真的 Google 表單的佔位值，設置步驟見 README.md -->
         <form id="joinForm" class="reveal"
           action="https://docs.google.com/forms/d/e/REPLACE_WITH_FORM_ID/formResponse"
           method="POST" target="hidden_iframe">
